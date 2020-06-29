@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    
+        <title>Hello, world!</title>
+  <script type="text/javascript">
+    
+    function func(element){
+      
+      document.getElementById('but').innerHTML=element.innerHTML;
+      //var x=element.className;
+      //console.log(x);
+      document.getElementById('but').className=element.className;
+    }
+
+    function func1(){
+      document.getElementById('but').innerHTML=con;
+      document.getElementById('but').className="mm";
+    }
+    function fun(){
+     document.getElementById('pat').removeAttribute("class","nba");
+     document.getElementById('pat').className="nba2";
+     document.getElementById('pat1').removeAttribute("class","nba");
+     document.getElementById('pat1').className="nba2";
+     
+    }
+    
+    function fun1(){
+      document.getElementById('pat').removeAttribute("class","nba2");
+     document.getElementById('pat').className="nba";
+        document.getElementById('pat1').removeAttribute("class","nba2");
+     document.getElementById('pat1').className="nba";
+    }
+  </script>
+  <style>
+    .body{
+      padding:0;
+      margin:0;
+      max-width:960px;
+      max-height: 960px;
+    }
+    .Upper{
+      
+      width:100vw;
+      height:60vh;
+      background-color: rgba(0,0,0,0.5);
+      position:relative;
+      overflow: hidden;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+    }
+    .card{
+      
+      overflow:hidden;
+      
+    }
+    .lower{
+      text-align: center;
+      
+      
+      width:100vw;
+      height:40vh;
+    }
+    .fd{
+      padding:100px;
+    }
+    .video-bg{
+      position:absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width:100%;
+      
+    }
+    .xz{
+      
+      
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      margin-left: 300px;
+      margin-bottom: 300px;
+      position: relative;
+      z-index: 1;
+      }
+    .xz::after{
+      position:absolute;
+      background-color: rgba(0,0,0,0.5);
+      content: '';
+      width:100%;
+      height: 100%;
+      top: 0;
+    
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 250ms ease-in;
+      z-index: -1;
+    }  
+    .xz:hover::after{
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .fg{
+      color:red;
+    }
+    .mm{
+      color:black;
+    }
+    .nba{
+      display: none;
+    }
+    .nba2{
+      display:inline;
+      background-image: url(/assets/arceus.png);
+      background-size: cover;
+    }
+    
+  </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="Upper">
+            <div class="d-block ">
+            <h2 class=" display-1">NASA</h2>
+            <h5 class="text-muted text-center">Be The Change</h5>
+          </div>
+          <video class="video-bg" src="ae1.mp4" autoplay loop muted></video>
+        
+        </div>
+        <div class="lower">
+          <div class="row fd">
+            <div class="  card mx-3 shadow col-md-4">
+              
+                <p id="pat" class="nba">
+                  Welcome <%=person%><br>
+                  Age:<%=data.age%><br>
+                  Hobbies:
+                  <ul class="nba" id="pat1">
+                    <% for(i=0;i<data.hobbies.length;i++){ %>
+                    <li>
+                      <%=data.hobbies[i]%>
+                    </li>
+
+                  <%}%>
+                </p> 
+              
+          
+          </div>
+          
+            <div class=" card mx-3 shadow col-md-4">
+              
+                <p id="but">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <script>
+                  var con=document.getElementById('but').innerHTML;
+                </script> 
+            
+            </div>
+            
+          </div>
+          <button  class="xz btn btn-primary" onclick="fun()">Read</button>
+          <button  class="xz btn btn-primary" onclick="fun1()">Minimize</button>
+          <div class="fg" onmouseover="func(this)" onmouseleave="func1()">
+            Hello thereeeeee!!
+          </div>
+        </div>
+      </div>
+       
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+var ul=document.getElementById('ul1');
+        ul.onclick=function(event){
+          var tgt=event.target.innerHTML;
+          console.log(tgt);
+          var removedata={item:tgt};
+          console.log(removedata);
+        };

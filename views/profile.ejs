@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/015d2d44fd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Profile</title>
+    <style type="text/css">
+      .upperbody{
+        background-image: linear-gradient(to right,#0083B0,#00B4DB);
+        padding-bottom:50px; 
+      }
+      .profile{
+        
+        
+        display:grid;
+        justify-content: center;
+        
+      }
+      .profilepart{
+        width:600px;
+        height:400px;
+        margin-top: 50px;
+        background-color: white;
+      }
+      .header{
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .desc{
+        font-size: 15px;
+
+      }
+      .booked{
+        margin-left: 50px;
+      
+        margin-top: 50px;
+      
+        height: 300px;
+        background-color: white;
+      }
+      .profilepic{
+        display:grid;
+        justify-content: center;
+        align-items: center;
+      }
+      .profilepicstyle{
+        border-radius: 50%;
+        margin-left:80px;
+
+      }
+      .uploadform{
+        margin-left: 80px;
+      }
+    </style>
+    <script type="text/javascript">
+        function cancel(element){
+            var child=element.parentElement.parentElement.children;
+            var room=child[0].innerHTML;
+            var checkin=child[1].innerHTML;
+            var checkout=child[2].innerHTML;
+            var data={room:room,checkin:checkin,checkout:checkout};
+            const options={
+              method:'POST',
+              headers:{
+                'Content-Type':'application/json'
+              },
+              body:JSON.stringify(data)
+            };
+            fetch('/cancel',options).then(response=>{
+              
+              window.location.reload();
+            });
+        }
+    
+    </script>
+  </head>
+  <body>
+    <div class="upperbody">
+    <nav class="navbar navbar-expand-md  
+    navbar-light  ">
+      <div class="container-fluid">
+        <a class="navbar-brand " href="#"><img src="/assets/hotel2.png" height="50"></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link " href="/bnb">Home</a>
+            </li>
+            <% if(!session){ %>
+            <li class="nav-item ">
+              <a class="nav-link " href="/Signup">Sign Up</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="/LogIn">Log In</a>
+            </li>
+          <%}%>
+          <% if(session){%>
+          <li class="nav-item ">
+              <a class="nav-link " href="/ContactUs">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Your Profile</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="/logout">Logout</a>
+            </li>
+          <%}%>
+          </ul>
+        </div>
+    </nav>
+    <div class="container-fluid profile">
+      
+        <div class="profilepart shadow-lg">
+          <div class="row">
+            <div class="col-md-6 profilepic text-center">
+              <% if(image){ %>
+                <img src="/assets/<%=image%>.jpg" height="125" class="profilepicstyle">
+           <% } %>
+              <form  class="uploadform" action="/upload" method="POST" enctype="multipart/form-data">
+                <input class="text-center" type="file" accept="image/*" name="photo" >
+                <input type="submit" value="upload">
+              </form>
+            </div>
+            <div class="col-md-6">
+              <div class="px-5 py-4">
+                <p class="display-4 header">NAME:</p>
+                <p class="lead desc"><%=data.name%></p>
+              </div>
+              <div class="px-5">
+                <p class="display-4 header">EMAIL ID:</p>
+                <p class="lead desc"><%=data.email%></p>
+              </div>
+              <div class="px-5">
+                <p class="display-4 header">CONTACT NO.:</p>
+                <p class="lead desc"><%=data.ContactNo%></p>
+              </div>
+              <div class="px-5">
+                <p class="display-4 header">GENDER:</p>
+                <p class="lead desc"><%=data.gender%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+    </div>
+    <div class="container">
+    <div class=" booked shadow-lg">
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Room</th>
+      <th scope="col">Check-In</th>
+      <th scope="col">Check-Out</th>
+      <th scope="col">Cancel Booking</th>
+    </tr>
+  </thead>
+  <% if(bookings){ %>
+  <tbody>
+    <% for(i=0;i<bookings.length;i++){ %>
+    <tr>
+        
+        <td><%=bookings[i].room%></td>
+        <td><%=bookings[i].checkin%></td>
+        <td><%=bookings[i].checkout%></td>
+        <td class="px-5"><button class="btn btn-light" type="button" onclick="cancel(this)"><i class="fas fa-trash"></i></button></td>
+      </tr>
+      <% } %>
+      
+    </tbody>
+ <% } %>
+  
+</table>
+    </div>
+  </div>
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Us</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="/assets/chatstyle.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+       window.addEventListener('load',function(event){
+            var socket=io.connect('http://localhost:3000');
+
+var message=document.getElementById('message');
+var handle=document.getElementById('handle');
+var btn=document.getElementById('send');
+var output=document.getElementById('output');
+var feedback=document.getElementById('feedback');
+
+btn.addEventListener('click',function(){
+    
+    socket.emit('chat',{
+        message:message.value,
+        handle:handle.textContent
+    });
+});
+message.addEventListener('keypress',function(){
+    socket.emit('typing',handle.value);
+});
+socket.on('output',function(data){
+    for(x=0;x<data.length;x++){
+        var message1=document.createElement('div');
+        message1.setAttribute('id','output');
+        message1.innerHTML+="<p><strong>"+data[x].handle+":</strong>"+data[x].message+"</p>";
+        output.appendChild(message1);
+        
+    }
+});
+
+socket.on('chat',function(data){
+    
+    feedback.innerHTML="";
+    output.innerHTML +='<p><strong>'+data.handle+':</strong>'+data.message+'</p>';
+    message.value="";
+});
+socket.on('typing',function(data){
+    
+    feedback.innerHTML='<p><em>'+data+' is typing a message</em></p>';
+});
+
+       });
+
+        </script>
+    </head>
+    <body>
+       <nav class="navbar navbar-expand-md  bg-light
+    navbar-light  sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="assets/jwlogo.png" height="100" /></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h4 class="display-4">JW Mariott</h4>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link " href="/bnb">Home</a>
+            </li>
+            
+            <% if(!session){ %>
+            <li class="nav-item ">
+              <a class="nav-link " href="/Signup">Sign Up</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="/LogIn">Log In</a>
+            </li>
+          <%}%>
+          <% if(session){%>
+          <li class="nav-item ">
+              <a class="nav-link " href="/ContactUs">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Your Profile</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="/logout">Logout</a>
+            </li>
+          <%}%>
+          </ul>
+        </div>
+    </nav> 
+             <% if(message){ %>
+                <div class="alert alert-success" role="alert">
+             <%=message%>
+             </div>
+            <%}%>
+             
+            
+            
+       
+        
+        
+        <div id="mario-chat">
+            <h2>Chat Room</h2>
+            <div id="chat-window">
+                <div id="output"></div>
+                <div id="feedback"></div>
+            </div>
+
+            <div id="handle" class="hide"><%=handle%></div>
+            <input id="message" type="text" placeholder="Message" />
+            <button id="send">Send</button>
+        </div>
+    
+    
+    </body>
+    
+</html>

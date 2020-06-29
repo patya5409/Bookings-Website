@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/015d2d44fd.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+    <style type="text/css">
+      body{
+        padding: 0px;
+        margin: 0px;
+      }
+      .container-fluid{
+        padding: 0px;
+        margin:0px;
+      }
+      .navbar-brand{
+        font-size: 50px;
+        font-family: 'Trocchi'
+      }
+      .hotel-header{
+        font-size: 110px;
+        padding-top: 55px;
+        font-family: 'Trocchi';
+        padding-left:20px;
+        color:white;
+      }
+      .hotel-subheading{
+        font-size: 20px;
+        padding-left: 20px;
+        color:white;
+
+      }
+      .booking-selection{
+        width:1000px;
+        height: 200px;
+        background-color: rgba(245,194,40,0.8);
+        padding-top:40px;
+        padding-bottom: 40px;
+        margin-left: 0px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+
+      }
+      .input-block{
+        width: 150px;
+        height:120px;
+        
+        
+        background-color: white;
+        
+        margin-left: 50px;
+      }
+      .submit-button{
+        margin-top:50px;
+        padding-top: 80px;
+        cursor: pointer;
+        background-color: black;
+        width: 250px;
+        height: 200px;
+
+
+      }
+      .input-block-option{
+        font-size: 20px;
+        font-family: 'Trocchi';
+        padding-top:10px;
+      }
+      .middlebody{
+        
+        padding:0;
+      }
+      
+      
+      .color1{
+        font-size: 20px;
+        color: white;
+      }
+      .color2{
+        color:#F5C228;
+        font-size: 16px;
+       
+      }
+      .sub{
+        font-size: 16px;
+      }
+      .sub1{
+        font-size: 20px;
+      }
+      .upperbody{
+        background-image: url("/assets/hotel.jpg");
+        background-size: cover;
+      }
+      nav{
+        color: white;
+      }
+      .room{
+        background-image: url("/assets/hotelroom.jpg");
+        background-size: cover;
+        height:220px;
+        padding-top:180px;
+        margin-bottom: 40px;
+        font-weight: bold;
+        color: white;
+      }
+      .swimmingpool{
+        background-image: url("/assets/water.jpg");
+        background-size: cover;
+        height: 220px;
+        padding-top:180px;
+        margin-bottom: 40px;
+        font-weight: bold;
+        color: white;
+      }
+      .restaurant{
+        background-image: url("/assets/restaurant.jpg");
+        background-size: cover;
+        height: 220px;
+        padding-top:180px;
+        margin-bottom: 40px;
+        font-weight: bold;
+        color: white;
+      }
+      .middlenexthead{
+        color:#F5C228;
+        font-size: 20px;
+        font-weight: lighter;
+        margin-top: 30px;
+      }
+      .middlenexthead1{
+        font-family: 'Trocchi';
+        font-size:60px;
+        margin-bottom: 40px;
+      }
+      .ammenities{
+        background-color: white;
+        padding-top:60px;
+        transition: 1s;
+        margin-bottom: 40px;
+        height: 200px;
+        font-weight: bold;
+      }
+      .ammenities:hover{
+        background-color:#F5C228; 
+
+      }
+      .ammenities1{
+        background-color: #A9A9A9;
+        padding-top:60px;
+        transition: 1s;
+        margin-bottom: 40px;
+        height: 200px;
+        font-weight: bold;
+      }
+      .ammenities1:hover{
+        background-color:#F5C228; 
+
+      }
+      .roomsintro{
+        padding:0;
+        margin:0;
+        height: 220px;
+        width:100%;
+      }
+      .middle{
+        color:#F5C228;
+        font-size: 20px;
+        font-weight: lighter;
+        margin-top: 30px;
+        background-color: red;
+      }
+      .middlenexthead2{
+        font-family: 'Trocchi';
+        font-size:60px;
+        
+      }
+      .middlenexthead3{
+        color:#F5C228;
+        font-size: 20px;
+        font-weight: lighter;
+        margin-top: 30px;
+        padding-top: 10px;
+      }
+      .lowerleft{
+        height: 300px;
+        background-image: url("/assets/pool.jpg");
+        background-size: cover;
+        padding-top:100px;
+        color: white;
+        font-family: 'Trocchi';
+        font-size:40px;
+        
+      }
+      .hotelname{
+        color:#F5C228;
+      }
+      .nexthead{
+        margin:0;
+      }
+      .info{
+        margin-top: 40px;
+        color:white;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .lowermiddle{
+        background-image: url("/assets/suite.jpg");
+        background-size: cover;
+        
+      }
+      .lowermiddle1{
+        background-image: url("/assets/deluxe.jpg");
+        background-size: cover;
+        height: 300px;
+        
+      }
+      .lowermiddle2{
+        background-image: url("/assets/luxury.jpg");
+        background-size: cover;
+        height: 300px;
+      
+      }
+      .lowerright{
+        font-size: 20px;
+        color:grey;
+        padding-top:80px;
+        background-color: white;
+        transition: 1s;
+        position: relative;
+        cursor: pointer;
+      }
+      .lowerright:hover{
+        background-color:#F5C228; 
+        color:white;
+      }
+      .goldit{
+        color:#F5C228;
+        font-size:40px;
+      }
+      
+      .suitetext{
+        font-family: 'Trocchi';
+        color:black;
+        font-size: 40px;
+      }
+      .lowerright::before,
+      .lowerright::after{
+        position:absolute;
+        content: '';
+        width:30px;
+        height:30px;
+        background-color:white;
+        left:0;
+        transition:1s;
+      }
+      .lowerright::after{
+        transform: skew(-35deg,0);
+        bottom: 50%;
+      }
+      .lowerright::before{
+        top:50%;
+        transform: skew(35deg,0);
+      }
+      .lowerright:hover + .lowerright::before{
+        content:'';
+        background-color:#F5C228; 
+      }
+      .lowerright:hover .lowerright::after{
+        content: '';
+        background-color:#F5C228;
+      }
+    </style>
+    <script type="text/javascript">
+      function submitform(){
+        document.getElementById('myForm').submit();
+      }
+      function changecolors(){
+        document.getElementById('check').removeAttribute("class","color1");
+        document.getElementById('check').setAttribute("style","color:#F5C228;font-size:20px;");
+        document.getElementById('bestprice').removeAttribute("class","color2");
+        document.getElementById('bestprice').setAttribute("style","color:white;font-size:16px;");
+        
+      }
+      function changecolors1(){
+        setTimeout(function(){document.getElementById('check').removeAttribute("class","color2");
+        document.getElementById('check').setAttribute("style","color:white;font-size:20px;");
+        document.getElementById('bestprice').removeAttribute("class","color1");
+        document.getElementById('bestprice').setAttribute("style","color:#F5C228;font-size:16px;");
+
+        },1000);
+        
+        
+      }
+      function roomchange(){
+        document.getElementById('cost').removeAttribute("class","goldit");
+        document.getElementById('cost').setAttribute("style","color:white;font-size:40px;");
+        document.getElementById('roomname').removeAttribute("class","suitetext");
+        document.getElementById('roomname').setAttribute("style","color:white;font-family: 'Trocchi';font-size: 40px;")
+      }
+      function roomchange1(){
+        document.getElementById('cost').setAttribute("style","color:#F5C228;font-size:40px;");
+        document.getElementById('roomname').setAttribute("style","font-family: 'Trocchi';color:black;font-size: 40px;");
+      }
+      function roomchange2(){
+        document.getElementById('cost1').removeAttribute("class","goldit");
+        document.getElementById('cost1').setAttribute("style","color:white;font-size:40px;");
+        document.getElementById('roomname1').removeAttribute("class","suitetext");
+        document.getElementById('roomname1').setAttribute("style","color:white;font-family: 'Trocchi';font-size: 40px;")
+      }
+      function roomchange3(){
+        document.getElementById('cost1').setAttribute("style","color:#F5C228;font-size:40px;");
+        document.getElementById('roomname1').setAttribute("style","font-family: 'Trocchi';color:black;font-size: 40px;");
+      }
+      function roomchange4(){
+        document.getElementById('cost2').removeAttribute("class","goldit");
+        document.getElementById('cost2').setAttribute("style","color:white;font-size:40px;");
+        document.getElementById('roomname2').removeAttribute("class","suitetext");
+        document.getElementById('roomname2').setAttribute("style","color:white;font-family: 'Trocchi';font-size: 40px;")
+      }
+      function roomchange5(){
+        document.getElementById('cost2').setAttribute("style","color:#F5C228;font-size:40px;");
+        document.getElementById('roomname2').setAttribute("style","font-family: 'Trocchi';color:black;font-size: 40px;");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="upperbody">
+    <nav class="navbar navbar-expand-md  
+    navbar-light  ">
+      <div class="container-fluid">
+        <a class="navbar-brand " href="#"><img src="/assets/hotel2.png" height="50"></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link " href="#">Home</a>
+            </li>
+            <% if(!session){ %>
+            <li class="nav-item ">
+              <a class="nav-link " href="/Signup">Sign Up</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="/LogIn">Log In</a>
+            </li>
+          <%}%>
+          <% if(session){%>
+          <li class="nav-item ">
+              <a class="nav-link " href="/ContactUs">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Your Profile</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="/logout">Logout</a>
+            </li>
+          <%}%>
+          </ul>
+        </div>
+    </nav>
+    <div class="container-fluid ">
+      <div class="hotel-header">JW MARIOTT</div>
+      <div class="display-4 hotel-subheading">MORE THAN A HOTEL...AN EXPERIENCE</div>
+      <form method="POST" action="/bnb" id="myForm">
+     <div class="row">
+      <div class="booking-selection">
+        <div class="row">
+        <div class="input-block col-3">
+          <div class="input-block-option text-center">
+            <p>CHECK-IN DATE</p>
+        </div>
+        <div class="text-center">
+        <input type="DATE" name="checkin" required>
+      </div>
+        </div>
+        <div class="input-block col-3">
+          <div class="input-block-option text-center">
+            <p>CHECK-OUT DATE</p>
+        </div>
+        <div class="text-center">
+        <input type="DATE" name="checkout" required>
+      </div>
+        </div>
+        <div class="input-block col-3">
+          <div class="input-block-option text-center">
+            <p>ROOM</p>
+        </div>
+        <div class="text-center">
+        <select placeholder="Select type" name="room" class="form-control">
+                <option value="Suite">Suite</option>
+                <option value="Family Room">Family Room</option>
+                <option value="Deluxe Room">Deluxe Room</option>
+                <option value="Classic Room">Classic Room</option>
+                <option value="Luxury Room">Luxury Room</option>
+              </select>
+            </div>
+        </div>
+      </div>
+      </div>
+      <div onclick="submitform()" onmouseenter="changecolors()" onmouseleave="changecolors1()" class="submit-button ">
+        <div class="text-center">
+      <p id="check" class="color1">CHECK AVAILABILITY</p>
+    
+      <p class="sub color2" id="bestprice">BEST PRICE GUARENTEED</p>
+      </div>
+      </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  <div class="container middlebody">
+    <div class="row">
+      <div class="room col-4 text-center">
+        <div>ROOMS</div>
+    </div>
+    <div class="swimmingpool col-4 text-center">
+        <div>SWIMMING POOL</div>
+    </div>
+    <div class="restaurant col-4 text-center">
+        <div>RESTAURANT</div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-center middlenexthead">
+      <p>WELCOME TO JW MARIOTT</p>
+    </div>
+    <div class="text-center middlenexthead1">
+      <p>A NEW VISION OF LUXURY HOTEL</p>
+    </div>
+    <div class="row">
+      <div class="ammenities col-3 text-center">
+        <i class="fas fa-concierge-bell fa-5x"></i>
+        <p>Friendly Service</p>
+      </div>
+      <div class="ammenities1 col-3 text-center">
+        <i class="fas fa-bed fa-5x"></i>
+        <p>Cozy Rooms</p>
+      </div>
+      <div class="ammenities col-3 text-center">
+        <i class="fas fa-bus fa-5x"></i>
+        <p>Transfer Services</p>
+      </div>
+      <div class="ammenities col-3 text-center">
+        <i class="fas fa-spa fa-5x"></i>
+        <p>Spa</p>
+      </div>
+    </div>
+  </div>
+   <div class="container-fluid bg-light nexthead">
+
+  <div class="text-center middlenexthead3">
+      <p>JW MARIOTT ROOMS</p>
+    </div>
+    
+  <div class="text-center middlenexthead2">
+      <p>Hotel Master's Rooms</p>
+    </div>
+  
+
+</div>
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-6 lowerleft text-center">
+      <p>Welcome to <span class="hotelname">JW Mariott</span></p>
+      <p class="info">A small river named Duden flows by their place and supplies it with the necessary regelia.</p>
+    </div>
+    <div class="col-3 lowermiddle"></div>
+    <div class="col-3 lowerright text-center" onmouseenter="roomchange()"
+    onmouseleave="roomchange1()">
+      <p><span class="goldit" id="cost">$120.00</span>per night</p>
+      <p class="suitetext" id="roomname">Suite Room</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 lowermiddle1"></div>
+    
+    <div class="col-3 lowerright text-center" onmouseenter="roomchange2()"
+    onmouseleave="roomchange3()">
+      <p><span class="goldit" id="cost1">$120.00</span>per night</p>
+      <p class="suitetext" id="roomname1">Deluxe Room</p>
+    </div>
+  
+    <div class="col-3 lowermiddle2"></div>
+    <div class="col-3 lowerright text-center" onmouseenter="roomchange4()"
+    onmouseleave="roomchange5()">
+      <p><span class="goldit" id="cost2">$120.00</span>per night</p>
+      <p class="suitetext" id="roomname2">Luxury Room</p>
+    </div>
+  </div>
+  
+    
+  </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

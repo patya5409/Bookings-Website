@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTX43HMIjCFqgj_RfC6xVL4iitZzi6d0o&libraries=places"></script>
+    <script type="text/javascript">
+      var searchelement=document.querySelector('[data-target-city]');
+      var searchbox=new google.maps.places.SearchBox(searchelement);
+      searchbox.addEventListener('places_changed',() =>{
+        var place=searchbox.getPlaces()[0];
+        if(place==null){
+          console.log("error");
+        }
+      })
+    </script>
+  </head>
+  <body>
+    
+    <div class="container">
+      <form class="p-3" method="POST" action="/weather">
+        <input type="text" name="city" data-target-city placeholder="Enter city" required>
+        <input type="text" name="country" placeholder="Enter country" required>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+    <% if(data){ %>
+    <div class="container">
+      <h3 class="display-4"><%=data.name%></h3>
+      <p class="lead"><%=data.desc%></p>
+      <p class="lead"><%=data.temp%> °C</p>
+      <img src="http://openweathermap.org/img/w/<%=data.icon%>.png">
+    </div>
+  <%}%>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
