@@ -15,14 +15,12 @@ var storage = multer.diskStorage({
 var upload=multer({storage:storage});
 //till here
 require('dotenv').config();
-var stripe=require('stripe')(secret_key);
 var bodyParser = require('body-parser');
 var Razorpay=require('razorpay');
 var nodemailer=require('nodemailer');
 var hbs=require('nodemailer-express-handlebars');
 var Joi=require('@hapi/joi');
 var bcrypt=require('bcryptjs');
-var jwt=require('jsonwebtoken');
 var session=require('express-session');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var mongoose=require('mongoose');
