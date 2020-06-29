@@ -1,0 +1,13 @@
+h1{
+	background-image: url(/assets/netflix.png);
+	text-indent:-10000px;
+}
+a{
+	text-decoration-style: : none;
+	color:black;
+}
+li a:hover{
+	text-decoration: line-through;
+	color: rgba(0,0,0,0.5);
+	display: inline-block;
+}

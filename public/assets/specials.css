@@ -1,0 +1,73 @@
+        .makecircle{
+               
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+              }
+        .img-raised {
+          box-shadow:  0 8px 10px -5px rgba(0,0,0,.2);
+          position: absolute;
+          right:125px;
+          top:25px;
+          z-index: 1;
+        }
+      .card{
+        margin-top:100px;
+        position: relative;
+        height:400px;
+        padding-left: 20px;
+        padding-bottom: 0;
+        padding-right: 20px;
+        padding-top:30%;
+      }
+      .bd{
+        border-bottom-width: 3px;
+        border-bottom-color: #0083B0;
+        border-bottom-style: solid;
+        padding-bottom: 3px;
+
+      }
+      @keyframes increment{
+        0% {font-size: 50px;}
+        12.5% {font-size: 52.5px;}
+        25% {font-size: 55px;}
+        37.5% {font-size: 57.5px;}
+        50% {font-size: 60px;}
+        62.5% {font-size: 62.5px;}
+        75% {font-size:65px;}
+        87.5% {font-size:67.5px;}
+        100% {font-size: 70px;}
+      }
+
+      .counters{
+        animation-name: increment;
+        animation-duration: 0.40s;
+        animation-delay: 1.005s;
+        animation-iteration-count: 2;
+        animation-direction: alternate;
+      }
+      .bg1{
+        height:60px;
+        background-image: linear-gradient(to right,#0083B0,#00B4DB);
+      }
+      .numbers{
+        padding-top:50px;
+        font-size: 50px;
+        color: #0083B0;
+      }
+      .numbers1{
+        padding-bottom: 50px;
+        font-size: 15px;
+        color: #0083B0;
+      }
+      .body-back{
+        background-image: linear-gradient(to right,#0083B0,#00B4DB);
+      }
+      .innerbody{
+        padding-bottom: 50px;
+        color: #0083B0;
+      }
+      .mes{
+        color:white;
+        font-size: 40px;
+      }
