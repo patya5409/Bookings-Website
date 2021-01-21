@@ -17,7 +17,7 @@
     "nodemon": "^2.0.4",
     "razorpay": "^2.0.6",
     "request": "^2.88.2",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "require": "^2.4.20",
     "uuid": "^8.1.0"
   },
